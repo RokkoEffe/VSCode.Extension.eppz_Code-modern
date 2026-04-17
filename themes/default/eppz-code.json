@@ -1,26 +1,85 @@
-{	
+{
 	"name": "eppz! - Modern Code",
 	"author": "Geri Borbás",
 	"comment": "Created by Geri Borbás (https://twitter.com/_eppz) © 2017 Creative Commons 4.0 BY-NC",
 	"include": "eppz-code.root.json",
-	"settings":
-	[
+	"semanticHighlighting": true,
+	"semanticTokenColors":
+	{
+		// Base.
+		"comment": "#575b65",
+		"string": "#60c0d2",
+		"number": "#609ad2",
+		"regexp": "#60d2be",
+		"operator": "#b9b9b5",
+		"punctuation": "#9c9d9d",
 
+		// Keywords.
+		"keyword": "#cea47f",
+		"controlKeyword": "#cea47f",
+		"modifier": "#5e5050",
+		"macro": "#98816e",
+		"label": "#98816e",
+
+		// Types.
+		"namespace": "#b6776b",
+		"type": "#b6776b",
+		"class": "#b6776b",
+		"struct": "#b6776b",
+		"interface": "#b6776b",
+		"enum": "#b6776b",
+		"delegate": "#b6776b",
+		"typeParameter": "#b6776b",
+		"record": "#b6776b",
+
+		// Type declarations.
+		"class.declaration": "#d88e79",
+		"struct.declaration": "#d88e79",
+		"interface.declaration": "#d88e79",
+		"enum.declaration": "#d88e79",
+		"delegate.declaration": "#d88e79",
+		"record.declaration": "#d88e79",
+		"type.declaration": "#d88e79",
+
+		// Functions.
+		"function": "#4da586",
+		"method": "#4da586",
+		"extensionMethod": "#4da586",
+		"operatorOverloaded": "#4da586",
+		"event": "#4da586",
+
+		// Variables.
+		"variable": "#d9c679",
+		"variable.readonly": "#d9c679",
+		"variable.local": "#9d936a",
+		"parameter": "#d9c679",
+		"parameter.declaration": "#d9c679",
+		"property": "#9d936a",
+		"property.static": "#9d936a",
+		"field": "#d9c679",
+		"enumMember": "#6074d2",
+
+		// Strings.
+		"stringVerbatim": "#60c0d2",
+		"stringEscapeCharacter": "#588e9a"
+	},
 
 	// Visual Studio Code setting.
 
-	
+	"settings":
+	[
+
 		{
 			"settings":
 			{
 				// Base.
 				"foreground": "#dddcd3",
 				"background": "#2b2d35",
-			
+
 				// Selection.
 				"selectionHighlight": "#4b4a43",
 				"selection": "#41403e",
-				"lineHighlight": "#36363a",	
+				"lineHighlight": "#36363a",
 				"inactiveSelection": "#36363a",
 
 				// Find.
@@ -47,7 +106,7 @@
 				"invisibles": "#575b65"
 			}
 		}
-		
+
 
 	]
 }

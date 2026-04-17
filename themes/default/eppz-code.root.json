@@ -114,9 +114,15 @@
 				"entity.name.function",
 				"entity.name.method",
 				"keyword.other.get",
-				"keyword.other.set",				
-				"keyword.other.add",				
-				"keyword.other.remove"		
+				"keyword.other.set",
+				"keyword.other.add",
+				"keyword.other.remove",
+				"storage.type.accessor",
+				"storage.type.accessor.get",
+				"storage.type.accessor.set",
+				"storage.type.accessor.init",
+				"storage.type.accessor.add",
+				"storage.type.accessor.remove"
 			],
 			"settings": { "foreground": "#4da586" }
 		},
@@ -211,13 +217,40 @@
 			[
 				"keyword.control",
 				"keyword.operator.conditional",
+				"keyword.operator.expression",
+				"keyword.operator.expression.pattern.combinator",
+				"keyword.operator.expression.pattern.combinator.and",
+				"keyword.operator.expression.pattern.combinator.or",
+				"keyword.operator.expression.pattern.combinator.not",
+				"keyword.operator.expression.nameof",
+				"keyword.operator.expression.new",
+				"keyword.operator.expression.typeof",
+				"keyword.operator.expression.sizeof",
+				"keyword.operator.expression.default",
+				"keyword.operator.expression.checked",
+				"keyword.operator.expression.unchecked",
+				"keyword.operator.expression.stackalloc",
+				"keyword.operator.expression.await",
+				"keyword.operator.expression.throw",
+				"keyword.operator.expression.is",
+				"keyword.operator.expression.as",
+				"keyword.operator.expression.with",
+				"keyword.operator.expression.range",
 				"keyword.query"
 			],
 			"settings": { "foreground": "#cea47f" }
 		},
 		{
 			"name": "Keywords (other)",
-			"scope": [ "keyword.other" ],
+			"scope":
+			[
+				"keyword.other",
+				"keyword.other.directive",
+				"keyword.other.directive.using",
+				"keyword.other.directive.global",
+				"keyword.other.directive.static",
+				"keyword.other.directive.alias"
+			],
 			"settings": { "foreground": "#98816e" } // - 1
 		},
 

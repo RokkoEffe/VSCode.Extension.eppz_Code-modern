@@ -16,7 +16,7 @@ export class GoogleAnalytics
 
     // Settings.
     private static Disabled()
-    { return (vscode.workspace.getConfiguration('eppz-code')['disableAnalytics'] == true); }
+    { return (vscode.workspace.getConfiguration('eppz-code-modern')['disableAnalytics'] == true); }
 
 
     context: vscode.ExtensionContext;

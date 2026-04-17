@@ -1,4 +1,4 @@
-# **eppz!** (C# theme for Unity)
+# **eppz! - Modern** (C# theme for Unity)
 ## **Change log**
 
 
@@ -50,7 +50,7 @@
 
 * **1.0.36** - *2017-04-07*
 
-    + Command `eppz.code.resetReviewCounters` (for resetting review notification counters)
+    + Command `eppz.code-modern.resetReviewCounters` (for resetting review notification counters)
     + "Review" renamed to "Rate"
     
 * **1.0.35** - *2017-04-07*

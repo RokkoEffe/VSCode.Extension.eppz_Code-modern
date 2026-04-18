@@ -209,6 +209,19 @@
 		},
 
 
+	// Namespace paths (namespace MySpace; using X.Y.Z;).
+
+		{
+			"name": "Namespace paths",
+			"scope":
+			[
+				"entity.name.type.namespace",
+				"punctuation.accessor.namespace"
+			],
+			"settings": { "foreground": "#6074d2" }
+		},
+
+
 	// Keywords.
 
 		{

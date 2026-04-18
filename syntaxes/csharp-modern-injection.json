@@ -1,15 +1,52 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"scopeName": "csharp.modern.injection",
-	"injectionSelector": "L:source.cs -comment -string",
+	"injectionSelector": "source.cs -comment -string",
 	"patterns":
 	[
+		{ "include": "#namespace-declaration-path" },
+		{ "include": "#using-directive-namespace-path" },
 		{ "include": "#scoped-modifier" },
 		{ "include": "#checked-conversion-operator-declaration" },
 		{ "include": "#checked-operator-declaration" }
 	],
 	"repository":
 	{
+		"namespace-declaration-path":
+		{
+			"match": "(?x)\n(?<!\\.)\n\\b(namespace)\\b\\s+\n(@?[_[:alpha:]][_[:alnum:]]*(?:\\s*\\.\\s*@?[_[:alpha:]][_[:alnum:]]*)*)\n\\s*\n(?=[{;])",
+			"captures":
+			{
+				"1": { "name": "storage.type.namespace.cs" },
+				"2":
+				{
+					"patterns":
+					[
+						{ "match": "@?[_[:alpha:]][_[:alnum:]]*", "name": "entity.name.type.namespace.cs" },
+						{ "match": "\\.", "name": "punctuation.accessor.namespace.cs" }
+					]
+				}
+			}
+		},
+		"using-directive-namespace-path":
+		{
+			"match": "(?x)\n(?<!\\.)\n(?:\\b(global)\\s+)?\n\\b(using)\\b\\s*\n(?:\\b(static)\\b\\s*)?\n(?:\\b(unsafe)\\b\\s*)?\n(?!var\\b|\\()\n(@?[_[:alpha:]][_[:alnum:]]*(?:\\s*\\.\\s*@?[_[:alpha:]][_[:alnum:]]*)*)\n\\s*\n(?=;)",
+			"captures":
+			{
+				"1": { "name": "keyword.other.directive.global.cs" },
+				"2": { "name": "keyword.other.directive.using.cs" },
+				"3": { "name": "keyword.other.directive.static.cs" },
+				"4": { "name": "storage.modifier.unsafe.cs" },
+				"5":
+				{
+					"patterns":
+					[
+						{ "match": "@?[_[:alpha:]][_[:alnum:]]*", "name": "entity.name.type.namespace.cs" },
+						{ "match": "\\.", "name": "punctuation.accessor.namespace.cs" }
+					]
+				}
+			}
+		},
 		"scoped-modifier":
 		{
 			"match": "(?<!\\.)\\b(scoped)\\b(?=\\s+(?:ref\\b|in\\b|out\\b|readonly\\b|@?[_[:alpha:]]))",

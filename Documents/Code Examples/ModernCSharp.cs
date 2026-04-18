@@ -16,6 +16,13 @@ global using System.Collections.Generic;
 // File-scoped namespace
 namespace MyApp.Services;
 
+namespace Lol {
+    public class Test
+    {
+        public void Method() { }
+    }
+}
+
 // Record types
 public record PersonRecord(string FirstName, string LastName);
 public record class AnotherRecord(int Id, string Name);

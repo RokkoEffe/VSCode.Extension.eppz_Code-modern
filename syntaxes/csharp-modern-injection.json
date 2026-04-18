@@ -5,6 +5,7 @@
 	"patterns":
 	[
 		{ "include": "#scoped-modifier" },
+		{ "include": "#checked-conversion-operator-declaration" },
 		{ "include": "#checked-operator-declaration" }
 	],
 	"repository":
@@ -16,6 +17,32 @@
 			{
 				"1": { "name": "storage.modifier.scoped.cs" }
 			}
+		},
+		"checked-conversion-operator-declaration":
+		{
+			"begin": "(?x)\n(?<explicit_or_implicit_keyword>\\b(?:explicit|implicit)\\b)\n\\s+\n(?<operator_keyword>\\boperator\\b)\n\\s+\n(?<checked_keyword>\\bchecked\\b)\n\\s+\n(?<type_name>\n  (?:ref\\s+(?:readonly\\s+)?)?\n  @?[_[:alpha:]][_[:alnum:]]*\n  (?:\\s*<[^<>]*(?:<[^<>]*>[^<>]*)*>)?\n  (?:\\s*\\?)?\n  (?:\\s*\\[\\s*,*\\s*\\]\\s*\\??)*\n  (?:\\s*\\.\\s*@?[_[:alpha:]][_[:alnum:]]*(?:\\s*<[^<>]*>)?)*\n)\n\\s*\n(?=\\()",
+			"beginCaptures":
+			{
+				"1":
+				{
+					"patterns":
+					[
+						{ "match": "\\b(explicit)\\b", "captures": { "1": { "name": "storage.modifier.explicit.cs" } } },
+						{ "match": "\\b(implicit)\\b", "captures": { "1": { "name": "storage.modifier.implicit.cs" } } }
+					]
+				},
+				"2": { "name": "storage.type.operator.cs" },
+				"3": { "name": "storage.modifier.checked.cs" },
+				"4": { "patterns": [ { "include": "source.cs#type" } ] }
+			},
+			"end": "(?<=\\})|(?=;)",
+			"patterns":
+			[
+				{ "include": "source.cs#comment" },
+				{ "include": "source.cs#parenthesized-parameter-list" },
+				{ "include": "source.cs#expression-body" },
+				{ "include": "source.cs#block" }
+			]
 		},
 		"checked-operator-declaration":
 		{

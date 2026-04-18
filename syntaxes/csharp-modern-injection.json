@@ -1,0 +1,40 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"scopeName": "csharp.modern.injection",
+	"injectionSelector": "L:source.cs -comment -string",
+	"patterns":
+	[
+		{ "include": "#scoped-modifier" },
+		{ "include": "#checked-operator-declaration" }
+	],
+	"repository":
+	{
+		"scoped-modifier":
+		{
+			"match": "(?<!\\.)\\b(scoped)\\b(?=\\s+(?:ref\\b|in\\b|out\\b|readonly\\b|@?[_[:alpha:]]))",
+			"captures":
+			{
+				"1": { "name": "storage.modifier.scoped.cs" }
+			}
+		},
+		"checked-operator-declaration":
+		{
+			"begin": "(?x)\n(?<return_type>\n  (?:ref\\s+(?:readonly\\s+)?)?\n  @?[_[:alpha:]][_[:alnum:]]*\n  (?:\\s*<[^<>]*(?:<[^<>]*>[^<>]*)*>)?\n  (?:\\s*\\?)?\n  (?:\\s*\\[\\s*,*\\s*\\]\\s*\\??)*\n)\n\\s+\n(?<operator_keyword>\\boperator\\b)\n\\s+\n(?<checked_keyword>\\bchecked\\b)\n\\s+\n(?<operator_symbol>[+\\-*/%&|\\^!=~<>]+|true|false)\n\\s*\n(?=\\()",
+			"beginCaptures":
+			{
+				"1": { "patterns": [ { "include": "source.cs#type" } ] },
+				"2": { "name": "storage.type.operator.cs" },
+				"3": { "name": "storage.modifier.checked.cs" },
+				"4": { "name": "entity.name.function.cs" }
+			},
+			"end": "(?<=\\})|(?=;)",
+			"patterns":
+			[
+				{ "include": "source.cs#comment" },
+				{ "include": "source.cs#parenthesized-parameter-list" },
+				{ "include": "source.cs#expression-body" },
+				{ "include": "source.cs#block" }
+			]
+		}
+	}
+}
